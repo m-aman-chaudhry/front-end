@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 0.65fr 2fr 0.65fr;
+}

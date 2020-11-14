@@ -1,0 +1,12 @@
+.background {
+	background-image: linear-gradient(to right, #cc0e74, yellow);
+}
+.border-nav {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #cc0e74;
+}
+
+::placeholder {
+	color: black;
+}

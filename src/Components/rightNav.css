@@ -1,0 +1,26 @@
+.bg {
+	background-color: black;
+}
+
+.border-rnav {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #cc0e74;
+}
+
+.button-text {
+	font-size: 20px;
+	color: white;
+	position: relative;
+	text-align: left;
+	font-weight: bold;
+	transform: skewX(20deg);
+	display: inline-block;
+	padding: 15px 10px 10px 15px;
+}
+
+.button-slanted {
+	transform: skewX(-20deg);
+	text-align: left;
+	margin-right: -15px;
+}

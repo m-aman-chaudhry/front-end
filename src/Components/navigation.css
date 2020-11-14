@@ -1,0 +1,9 @@
+.align {
+	text-align: center;
+}
+
+.aligns {
+	text-align: center;
+	margin: 10px;
+	align-self: center;
+}

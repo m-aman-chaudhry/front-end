@@ -1,0 +1,33 @@
+.display {
+	display: grid;
+	grid-gap: 1px;
+}
+
+.border {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0px 30px 0px 0px;
+	border-color: #cc0e74;
+}
+
+.text-color {
+	color: white;
+}
+
+.card-border {
+	border-style: solid;
+	border-width: 1px;
+	border-color: yellow;
+}
+
+.a {
+	color: white;
+}
+
+.align {
+	text-align: right;
+}
+
+.dimensions {
+	height: 150px;
+}
