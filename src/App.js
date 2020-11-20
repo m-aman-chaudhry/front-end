@@ -14,20 +14,17 @@ class App extends React.Component {
     }
   }
   signin = () => {
-    this.setState({ isSignedIn: true })
-    console.log('hi');
+    this.setState({ isSignedIn: !this.state.isSignedIn })
   }
 
   render() { 
     return (
       <Router>
         <div className="App bg-dark-gray">
-          <Navigation isSignedIn={this.state.isSignedIn}/> 
+          <Navigation isSignedIn={this.state.isSignedIn} signin={this.signin}/> 
           <Switch>
             <Route path="/" exact component={Bottom} />
-            
             <Route exact path="/registerlink" component={() => <Register signin={this.signin} isSignedIn={this.isSignedIn}/>}/>}
-            
             <Route exact path="/signin" component={() => <SignIn signin={this.signin} isSignedIn={this.isSignedIn}/>}/>
           </Switch>
         </div>

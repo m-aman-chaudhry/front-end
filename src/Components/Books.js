@@ -7,7 +7,7 @@ const Movies = () => {
 		<div className="body-grid">
 			<article className="bg-white center card-dimensions ba b--black-10 mv4">
   				<div className="pv2 ph3">
-     				<h1 className="f6 ttu tracked">TV Shows</h1>
+     				<h1 className="f6 ttu tracked">Books</h1>
   				</div>
   				<img src="/img/cat-720.jpg" class="w-100 db" alt="Cat yawning" />
   				<div class="pa3">
