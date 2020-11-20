@@ -1,15 +1,37 @@
 import React from 'react';
 import 'tachyons';
+import Movies from './Movies.js';
+import TVShows from './TVShows.js'
 
-const Body = () =>{
+const Body = ({ routes }) => {
+	const conditionalrender = () => {
+		if (routes === 'movies') {
+    	  return(
+    		<Movies />
+    	  );
+    	}
+    	else if ( routes === 'tv-shows') {
+    	  return(
+    	  	<TVShows />
+    	  );
+    	}
+    	else if ( routes === 'anime') {
+    	  //return();	
+    	}
+    	else if ( routes === 'books') {
+    	  //return();	
+    	}
+    	else if ( routes === 'songs') {
+    	  //return();	
+    	}
+    	else if ( routes === 'web-series') {
+    	  //return();
+    	}
+	}
     return(
-        <div className='bg-dark-gray' style= {{ display :'grid', height: '100%'}} >
-        <div className='ma5 bg-gray pa6'>
-            <p className='f2 white b'>Information for user</p>
-        </div>
-        </div>
+    	<div>
+    	  {conditionalrender() }
+    	</div>
     );
-
 }
-
 export default Body;

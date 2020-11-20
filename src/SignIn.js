@@ -1,7 +1,8 @@
 import React from 'react';
+import './border.css';
+import { Link } from 'react-router-dom';
 
 class SignIn extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -39,11 +40,11 @@ class SignIn extends React.Component {
 	render() {
 		const { onRouteChange } = this.props;
 		return (
-		<article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
-			<main className="pa4 black-80">
+		<article className="mv6 w-100 w-50-m w-25-l mw6 center bg-dark-gray">
+			<main className="pa4 black-80 bg-white shadow-5 center br3 ba">
 			  <div className="measure">
 			    <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-			      <legend className="f1 fw6 ph0 mh0">Sign In</legend>
+			      <legend className="f1 fw6 ph0 mh0">SIGN IN</legend>
 			      <div className="mt3">
 			        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
 			        <input 
@@ -64,15 +65,20 @@ class SignIn extends React.Component {
 			      </div>
 			    </fieldset>
 			    <div className="">
+			     <Link to="/">
 			      <input
+			      	signin={this.props.signin}
 			      	onClick={this.onSubmitSignIn} 
 			        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
 			        type="submit" 
-			        value="Sign in" 
+			        value="Sign In" 
 			      />
+			     </Link>
 			    </div>
 			    <div className="lh-copy mt3">
-			      <p onClick={() => onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
+			     <Link to='/registerlink'>
+			      <p /*onClick={() => onRouteChange('register')}*/ className="f6 link dim black db pointer">Sign Up</p>
+			     </Link>
 			    </div>
 			  </div>
 			</main>

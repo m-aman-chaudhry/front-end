@@ -1,22 +1,32 @@
-import React from 'react';
+import React,{ Component } from 'react';
 import Navigation2 from './navigation2.js';
 import LeftNav from './leftNav.js';
 import RightNav from './rightNav.js';
 import Body from './body.js';
 import './bottomPart.css';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 
-function Bottom() {
+class Bottom extends Component {
+  constructor() {
+    super();
+    this.state = {route: 'movies'}
+  }
+  onRouteChange = (route) => {
+  this.setState({route: route});
+ }
+
+render() {
   return (
 	<div className="App bg-dark-gray">
 	  <Navigation2 />
-	  <div className='container' >
+	  <div className='container'>
 	    <LeftNav />
-	    <Body/>
-	    <RightNav />
+	    <Body routes={this.state.route}/>
+	    <RightNav onRouteChange={this.onRouteChange}/>
 	  </div>
 	</div>
   );
+}
 }
 
 export default Bottom;

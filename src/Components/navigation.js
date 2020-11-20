@@ -4,7 +4,7 @@ import Logo from './logo.js';
 import {Link} from 'react-router-dom';
 import './navigation.css';
 
-const Navigation = () =>{
+const Navigation = ({ isSignedIn }) =>{
     return (
         <nav style= {{display : 'flex', height:"55px" , width:'100%'}} className='bg-dark-gray'>
             <Link to="/">
@@ -14,8 +14,7 @@ const Navigation = () =>{
 	            <p className='b white f3 aligns'>KRINIX</p>
             </Link> 
             <span className="center"></span>
-            <Button  />
-            
+            <Button isSignedIn={isSignedIn} />
         </nav>
     );
 }

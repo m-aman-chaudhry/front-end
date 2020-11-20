@@ -15,7 +15,7 @@ const LeftNav = () =>{
 				</a>
 			</article>
 			<article className="bg-dark-gray center mw5 ba mv1 card-border">
-			  <div class="pv2 ph3 align">
+			  <div className="pv2 ph3 align">
 			     <a href="#" className="link dim a align">TV SHOWS</a>
 			  </div>
 			  	<a href="#" className="dim">
