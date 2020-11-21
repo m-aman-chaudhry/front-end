@@ -34,6 +34,8 @@ class Profile extends Component {
 		})
 		return(
 			<div className="userProfile">
+				<h1 className="text-gradient">PROFILE</h1>
+				<h2 className="text-gradient">USERNAME: PLACEHOLDER</h2>
 				<table className="userTable">
 					<thead>
 					  <tr>
@@ -54,3 +56,4 @@ class Profile extends Component {
 }
 
 export default Profile;
+
