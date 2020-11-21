@@ -1,17 +1,23 @@
 .userProfile {
-	min-height: 100vh;
-	background-color: grey;
+	max-height: 100vh;
+	/*background-color: grey;*/
+	width: 80%;
+	margin: auto;
+
 }
 
 .userTable {
 	width: 100%;
 	text-align: center;
-	border: 1px solid black;
-	border-collapse: collapse;
+	/*border: 1px solid black;*/
+	/*border-collapse: collapse;*/
 }
 
 th, td {
 	border: 1px solid black;
-	border-collapse: collapse;
+	border-radius: 100px;
+	background-color: rgba(128, 128, 128, 0.5);
+	/*border-collapse: collapse;*/
 	width: 20%;
+	padding: 0.5%;
 }

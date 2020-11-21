@@ -44,8 +44,10 @@ class Profile extends Component {
 					    <th>Comments</th>
 					  </tr>
 					</thead>
+					<tbody>
+						{userInfo}
+					</tbody>
 				</table>
-				{userInfo}
 			</div>
 		);
 	}
