@@ -47,7 +47,8 @@ class App extends Component {
         {var valuing = []}
       return(
       <div>
-        <ul>{{//this is a comment here you will make a on click function which will send all the data to next component and show it's despcreption and allow to make comments and status}}
+        <ul>{{/*this is a comment here you will make a on click function which will send all the data to next component and show it's despcreption and allow to make comments and status*/}}
+          {{/* Now you can get any tag like h1,h2 from the descreption html just save it in a variavle and use variable_name.value and it will give you the content inside that tag*/}}
           <li style={{position:'relative',left:'10vh'}}>
             <span style={styleInfo}>{data.anime}</span>
             <img src={data.image} />
