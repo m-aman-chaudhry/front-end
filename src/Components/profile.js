@@ -3,29 +3,26 @@ import React, {Component} from 'react';
 import InformationList from './informationList';
 import './profile.css';
 
-const users = [
-    {
-        "id": 1,
-        "mediaId": "2",
-        "status": "3",
-        "Rating": "4",
-        "Comments": "5"
-    },
-    {
-        "id": 6,
-        "mediaId": "7",
-        "status": "8",
-        "Rating": "9",
-        "Comments": "10"
-    }
-];
-
 class Profile extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
-			users: users
+			users: []
 		}
+	}
+
+	onSubmitSignIn = () => {
+		fetch('http://localhost:3001/profile', {
+			method: 'post',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+				email: this.props.user.email
+			})
+		})
+		  .then(response => response.json())
+		  .then(user => {
+		  	this.setState({users: user})
+		  })	
 	}
 
 	render() {

@@ -6,7 +6,8 @@ class Register extends React.Component {
 		this.state = {
 			email: '',
 			password: '',
-			name: ''
+			first: '',
+			last: ''
 		}
 	}
 
@@ -29,14 +30,14 @@ class Register extends React.Component {
 			body: JSON.stringify({
 				email: this.state.email,
 				password: this.state.password,
-				name: this.state.name
+				first: this.state.first,
+				last: this.state.last
 			})
 		})
 		  .then(response => response.json())
 		  .then(user => {
 		  	if (user) {
-		  		this.props.loadUser(user);
-		  		this.props.onRouteChange('home');
+		  		alert("Verifiation mail is sent on "+ user.email)
 		  	}
 		  })	
 	}
