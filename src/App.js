@@ -36,9 +36,6 @@ class App extends React.Component {
             <Route exact path="/signin" component={() => <SignIn signin={this.signin} isSignedIn={this.isSignedIn}/>}/>
             <Route exact path="/profile" component={Profile}/>
           </Switch>
-
-          {{//<Search />}}
-          {{// Above line is supposed to be a comment if it dosen't work out properly then remove it. It is there to just show search is working}}
         </div>
       </Router>
     );

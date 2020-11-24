@@ -1,0 +1,14 @@
+/*.hotrodchanges {
+	width: ;
+}
+
+.genre-titles {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.5s;
+}
+
+.genre-titles-active {
+	visibility: visible;
+	opacity: 1;
+}*/
