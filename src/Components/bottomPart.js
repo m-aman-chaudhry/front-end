@@ -9,7 +9,7 @@ import './bottomPart.css';
 class Bottom extends Component {
   constructor() {
     super();
-    this.state = {route: 'movies'}
+    this.state = {route: 'anime'}
   }
   onRouteChange = (route) => {
   this.setState({route: route});

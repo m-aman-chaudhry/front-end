@@ -67,7 +67,8 @@ class SignIn extends React.Component {
 			    <div className="">
 			     <Link to="/">
 			      <input
-			      	onClick={this.onSubmitSignIn} 
+			      	onClick={this.onSubmitSignIn}
+			      	onClick={this.props.signin}
 			        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
 			        type="submit" 
 			        value="Sign In" 

@@ -1,12 +1,13 @@
 import React from 'react';
 import './Card.css';
+import 'tachyons';
 var XMLParser = require('react-xml-parser');
 
 // const Card = (props) => {
 // 	var xml = new XMLParser().parseFromString(props.genre);
 //     var valuing = xml.getElementsByTagName('div')[xml.getElementsByTagName('div').length-1].getElementsByTagName('ul')[0].getElementsByTagName('li');
 // 	return(
-// 		<article className="bg-white center card-dimensions ba b--black-10 mv4 hotrodchanges">
+// 		<article className="bg-white center card-dimensions ba b--black-10 mv4">
 // 			<div className="">
 // 				<h1 className="f6 ttu tracked">{props.id}</h1>
 // 			</div>
@@ -19,7 +20,7 @@ var XMLParser = require('react-xml-parser');
 // 	)
 // }
 
-// export default Card;
+//export default Card;
 
 const Card = (props) => {
 	var xml = new XMLParser().parseFromString(props.genre);
@@ -29,10 +30,10 @@ const Card = (props) => {
 			<div className="">
 				<h1 className="cardTitle">{props.id}</h1>
 			</div>
-				<img src={props.imageurl} className="" style={{"height":"50%", "width":"50%"}} alt="{props.key}" />
+				<img src={props.imageurl} className="" style={{"height":"73%", "width":"100%"}} alt="{props.key}" />
 			<p className="genreName" >genre</p>
 			<div className="genreDiv">
-				{valuing.map((data, i)=>{return(<span genrekey={i} className="genreTitles">{data.value}</span>)})}
+				{valuing.slice(0,4).map((data, i)=>{return(<span genrekey={i} className="genreTitles">{data.value}</span>)})}
 			</div>
 		</article>
 	)
