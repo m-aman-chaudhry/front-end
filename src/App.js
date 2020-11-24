@@ -35,6 +35,7 @@ class App extends React.Component {
             <Route exact path="/registerlink" component={() => <Register signin={this.signin} isSignedIn={this.isSignedIn}/>}/>
             <Route exact path="/signin" component={() => <SignIn signin={this.signin} isSignedIn={this.isSignedIn}/>}/>
             <Route exact path="/profile" component={Profile}/>
+            <Route exact path="/search" component={Search}/>
           </Switch>
         </div>
       </Router>
