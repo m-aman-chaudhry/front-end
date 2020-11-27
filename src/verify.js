@@ -34,7 +34,7 @@ class Verify extends React.Component{
 
 	render(){
 		if (this.state.redirect) {
-			return(<Redirect to="/login" />);
+			return(<Redirect to="/signin" />);
 		}
 		else{
 			return(

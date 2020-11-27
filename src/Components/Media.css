@@ -1,0 +1,39 @@
+.Mediaside{
+	display: grid;
+	grid-template-columns: auto;
+	border-style: solid;
+	border-radius: 0.5em;
+	border-color: black;
+	margin: 1em;
+}
+
+.Mediamain{
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+.contactra{
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	grid-template-rows: 100px;
+	align-self: center;
+}
+
+.rat{
+	width: 150px;
+	background-color: white;
+	font-size: 1.125em;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+}
+
+.rat1{
+	width: 150px;
+	background-color: white;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+}
+
+.hava:hover{
+	background-color: #bebbbb;
+}

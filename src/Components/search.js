@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 import Information from './anime_json';
+import './search.css'
+import { Link } from 'react-router-dom';
 var XMLParser = require('react-xml-parser');
 
 
-class App extends Component {
+class Search extends Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
     this.state={
-      search:null,
-      a: [1,2,3]
+      search:null
     };
+  }
+
+  componentDidMount(){
+    this.onsearchchange()
+  }
+
+  onsearchchange = () =>{
+    this.setState({search:this.props.data})
   }
 
   searchSpace=(event)=>{
@@ -21,7 +30,8 @@ class App extends Component {
 
   render(){
     const styleInfo = {
-      paddingRight:'10px'
+      paddingRight:'10px',
+      textAlign:'center'
     }
     const elementStyle ={
       border:'solid',
@@ -44,27 +54,54 @@ class App extends Component {
         {var xml = new XMLParser().parseFromString(data.descreption);
         var valuing = xml.getElementsByTagName('div')[xml.getElementsByTagName('div').length-1].getElementsByTagName('ul')[0].getElementsByTagName('li');}
       catch
-        {var valuing = []}
+        {var valuing = []
+         }
+
+      try{
+        var episodes = xml.getElementsByTagName('ul')[0].getElementsByTagName('li')[0];
+      }
+      catch{episodes="unavialable"}
+      try{
+        var Studio = xml.getElementsByTagName('ul')[0].getElementsByTagName('li')[1];
+      }
+      catch{Studio="unavialable"}
+      try{
+        var Aired = xml.getElementsByTagName('ul')[0].getElementsByTagName('li')[2];
+      }
+      catch{Aired="unavialable"}
       return(
-      <div>
-        <ul>
-            <li style={{position:'relative',left:'10vh'}}>
-            <span style={styleInfo}>{data.anime}</span>
+      <Link to='./media' style={{'color':'black'}}>
+      <div onClick={() => this.props.animedata(data)}>
+        <li>
+        <div className="seatag">
             <img src={data.image} />
-            {valuing.map(data=>{return(<span style={styleInfo}>{data.value}</span>)})}
-          </li>
-        </ul>
+            <div className="infosema">
+              <h1 style={styleInfo}>{data.anime}</h1>
+              <span className="infose">No. of episodes:{episodes.value}</span><br/>
+              <span className="infose">Studio:{Studio.value}</span><br/>
+              <span className="infose">Aired:{Aired.value}</span><br/>
+              <p className="infose">Tags:
+              {valuing.map(data=>{return(<span style={styleInfo}>{data.value},</span>)})}
+              </p>
+            </div>
+        </div>
+        </li>
       </div>
+      </Link>
       )
     })
 
     return (
       <div>
-      <input type="text" placeholder="Enter item to be searched" style={elementStyle} onChange={(e)=>this.searchSpace(e)} />
+      <div style={{display:"flex", height:"100px" , justifyContent:"center"}} className='bg-gray' >
+            <input className='ba background pa2 mb2 db w-40 mv4 br-pill border-nav b' type='text' placeholder='Enter item to be searched' onChange={(e)=>this.searchSpace(e)} />
+      </div>
+      <ul className="altag">
       {items}
+      </ul>
       </div>
     )
   }
 }
 
-export default App;
+export default Search;

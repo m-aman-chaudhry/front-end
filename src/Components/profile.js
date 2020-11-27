@@ -11,6 +11,10 @@ class Profile extends Component {
 		}
 	}
 
+	componentDidMount(){
+		this.onSubmitSignIn();
+	}
+
 	onSubmitSignIn = () => {
 		fetch('http://localhost:3001/profile', {
 			method: 'post',
@@ -27,17 +31,16 @@ class Profile extends Component {
 
 	render() {
 		const userInfo = this.state.users.map((user, i) => {
-			return <InformationList key={i} id={user.id} mediaId={user.mediaId} status={user.status} Rating={user.Rating} Comments={user.Comments} />
+			return <InformationList key={i} id={user.id} status={user.status} Rating={user.Rating} Comments={user.Comments} />
 		})
 		return(
 			<div className="userProfile">
 				<h1 className="text-gradient">PROFILE</h1>
-				<h2 className="text-gradient">USERNAME: PLACEHOLDER</h2>
+				<h2 className="text-gradient">USERNAME: {this.props.user.email}</h2>
 				<table className="userTable">
 					<thead>
 					  <tr>
 					    <th>Id</th>
-					    <th>MediaId</th>
 					    <th>Status</th>
 					    <th>Rating</th>
 					    <th>Comments</th>

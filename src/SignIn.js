@@ -20,7 +20,7 @@ class SignIn extends React.Component {
 	}
 
 	onSubmitSignIn = () => {
-		fetch('http://localhost:3000/signin', {
+		fetch('http://localhost:3001/signin', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -30,8 +30,9 @@ class SignIn extends React.Component {
 		})
 		  .then(response => response.json())
 		  .then(user => {
-		  	if (user.id) {
-		  		this.props.loadUser(user);
+		  	console.log(user)
+		  	if (user.email) {
+		  		this.props.loaduser(user);
 		  		this.props.signin();
 		  	}
 		  })	
@@ -68,7 +69,6 @@ class SignIn extends React.Component {
 			     <Link to="/">
 			      <input
 			      	onClick={this.onSubmitSignIn}
-			      	onClick={this.props.signin}
 			        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
 			        type="submit" 
 			        value="Sign In" 

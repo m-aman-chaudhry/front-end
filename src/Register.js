@@ -11,8 +11,12 @@ class Register extends React.Component {
 		}
 	}
 
-	onNameChange = (event) => {
-		this.setState({ name: event.target.value })
+	onfirstNameChange = (event) => {
+		this.setState({ first: event.target.value })
+	}
+
+	onlastNameChange = (event) => {
+		this.setState({ last: event.target.value })
 	}
 
 	onEmailChange = (event) => {
@@ -24,7 +28,7 @@ class Register extends React.Component {
 	}
 
 	onSubmitSignIn = () => {
-		fetch('http://localhost:3000/register', {
+		fetch('http://localhost:3001/signup', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -38,6 +42,7 @@ class Register extends React.Component {
 		  .then(user => {
 		  	if (user) {
 		  		alert("Verifiation mail is sent on "+ user.email)
+		  		this.props.loaduser(user)
 		  	}
 		  })	
 	}
@@ -50,13 +55,21 @@ class Register extends React.Component {
 			    <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
 			      <legend className="f1 fw6 ph0 mh0">SIGN UP</legend>
 			      <div className="mt3">
-			        <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
+			        <label className="db fw6 lh-copy f6" htmlFor="name">First Name:</label>
 			        <input 
 			          className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 			          type="text" 
 			          name="name"
 			          id="name"
-			          onChange= {this.onNameChange} 
+			          onChange= {this.onfirstNameChange} 
+			        />
+			        <label className="db fw6 lh-copy f6" htmlFor="name">Last Name:</label>
+			        <input 
+			          className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+			          type="text" 
+			          name="name"
+			          id="name"
+			          onChange= {this.onlastNameChange} 
 			        />
 			      </div>
 			      <div className="mt3">

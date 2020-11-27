@@ -1,0 +1,25 @@
+.seatag{
+	display: grid;
+	grid-template-columns: auto auto;
+	margin: 1em;
+	padding: 1em;
+	border-style: solid;
+	border-color: black;
+	border-width: 0.75em;
+	border-radius: 1em;
+}
+
+.altag{
+	list-style: none;
+}
+
+.infose{
+	font-size: 1.5em;
+	margin: 1em;
+	text-align: left;
+	width: 100%;
+}
+
+.infosema{
+	text-align: left;
+}

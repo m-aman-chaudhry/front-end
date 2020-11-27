@@ -9,7 +9,7 @@ class Movies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      animes: anime.slice(9, 18)
+      animes: anime.slice(6, 12)
     }
   }
 

@@ -9,7 +9,7 @@ class Anime extends React.Component {
 	constructor(props) {
     super(props);
     this.state = {
-      animes: anime.slice(0, 9)
+      animes: anime.slice(0, 6)
     }
   }
 

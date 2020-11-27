@@ -7,8 +7,8 @@ import './bottomPart.css';
 //import {Link} from 'react-router-dom';
 
 class Bottom extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {route: 'anime'}
   }
   onRouteChange = (route) => {
@@ -18,7 +18,7 @@ class Bottom extends Component {
 render() {
   return (
 	<div className="App bg-dark-gray">
-	  <Navigation2 />
+	  <Navigation2 search={this.props.search} />
 	  <div className='container'>
 	    <LeftNav />
 	    <Body routes={this.state.route}/>
