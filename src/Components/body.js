@@ -7,36 +7,36 @@ import Books from './Books.js';
 import Songs from './Songs.js';
 import WebSeries from './WebSeries.js'
 
-const Body = ({ routes }) => {
+const Body = ({ routes,animedata }) => {
 	const conditionalrender = () => {
 		if (routes === 'movies') {
     	  return(
-    		<Movies />
+    		<Movies animedata={animedata} />
     	  );
     	}
     	else if ( routes === 'tv-shows') {
     	  return(
-    	  	<TVShows />
+    	  	<TVShows animedata={animedata} />
     	  );
     	}
     	else if ( routes === 'anime') {
     	  return(
-    	  	<Anime />
+    	  	<Anime animedata={animedata} />
     	  );	
     	}
     	else if ( routes === 'books') {
     	  return(
-    	  	<Books />
+    	  	<Books animedata={animedata} />
     	  );	
     	}
     	else if ( routes === 'songs') {
     	  return(
-    	  	<Songs />
+    	  	<Songs animedata={animedata} />
     	  );	
     	}
     	else if ( routes === 'web-series') {
     	  return(
-    	  	<WebSeries />
+    	  	<WebSeries animedata={animedata} />
     	  );
     	}
 	}

@@ -3,3 +3,12 @@
 	background-color: #444444;
 	border-radius: 0.75em;
 }
+.carding{
+	max-height: 255.04px;
+	height: 80%;
+}
+
+.carding1{
+	max-height: 300px;
+	max-width: 300px;
+}

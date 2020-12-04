@@ -43,7 +43,7 @@ class App extends React.Component {
       <Router>
         <div className="App bg-dark-gray">
           <Navigation isSignedIn={this.state.isSignedIn} signin={this.signin}/>
-            <Route exact path="/" component={() => <Bottom search={this.onsearchchange}/>} />
+            <Route exact path="/" component={() => <Bottom search={this.onsearchchange} animedata={this.animedata}/>} />
             <Route exact path="/registerlink" component={() => <Register signin={this.signin} isSignedIn={this.isSignedIn}/>}/>
             <Route exact path="/registerlink" component={() => <Register loaduser={this.loaduser} signin={this.signin} isSignedIn={this.isSignedIn}/>}/>
             <Route exact path="/signin" component={() => <SignIn loaduser={this.loaduser} signin={this.signin} isSignedIn={this.isSignedIn}/>}/>

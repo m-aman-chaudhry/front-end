@@ -21,7 +21,7 @@ render() {
 	  <Navigation2 search={this.props.search} />
 	  <div className='container'>
 	    <LeftNav />
-	    <Body routes={this.state.route}/>
+	    <Body routes={this.state.route} animedata={this.props.animedata}/>
 	    <RightNav onRouteChange={this.onRouteChange}/>
 	  </div>
 	</div>

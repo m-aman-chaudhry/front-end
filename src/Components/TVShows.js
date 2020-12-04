@@ -16,7 +16,7 @@ class TVSHOW extends React.Component {
   render() {
     const animeInfo = this.state.animes.map((anime, i) => {
       
-      return <Card key={i} id={anime.anime} imageurl={anime.image} genre={anime.descreption}/>
+      return <Card key={i} animedata={this.props.animedata} data={anime} id={anime.anime} imageurl={anime.image} genre={anime.descreption}/>
     });
 
     return (

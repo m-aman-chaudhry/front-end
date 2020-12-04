@@ -148,9 +148,10 @@ class Media extends React.Component {
 	render(){
 		try
 	       {var xml = new XMLParser().parseFromString(this.props.data.descreption);
-	       var valuing = xml.getElementsByTagName('div')[xml.getElementsByTagName('div').length-1].getElementsByTagName('ul')[0].getElementsByTagName('li');}
+	       var valuing = xml.getElementsByTagName('div')[xml.getElementsByTagName('div').length-1].getElementsByTagName('ul')[0].getElementsByTagName('li');
+	   		if (Aired==null) {valuing = [{'value':" "},{'value':" "},{'value':" "},{'value':" "},{'value':" "},{'value':" "}]}}
 	     catch
-	       {var valuing = []
+	       {var valuing = [{'value':" "},{'value':" "},{'value':" "},{'value':" "},{'value':" "},{'value':" "}]
 	        }
 	     try{
 	       var episodes = xml.getElementsByTagName('ul')[0].getElementsByTagName('li')[0];
@@ -162,16 +163,19 @@ class Media extends React.Component {
 	     catch{Studio="unavialable"}
 	     try{
 	       var Aired = xml.getElementsByTagName('ul')[0].getElementsByTagName('li')[2];
+	       if (Aired==null) {Aired={'value':"unavialable"}}
 	     }
 	     catch{Aired="unavialable"}
 	     try{
 	       var descreption = xml.getElementsByTagName('p')[0];
+	       if (descreption==null) {descreption={'value':"Song"}}
 	     }
 	     catch{descreption="unavialable"}
 	     try{
 	       var nameal = xml.getElementsByTagName('h6')[0];
+	       if (nameal==null) {nameal={'value':"unavialable"}}
 	     }
-	     catch{nameal="unavialable"}
+	     catch{nameal={'value':"unavialable"}}
 	     try{
 	       var rating = xml.getElementsByTagName('ul')[0].getElementsByTagName('li')[3].getElementsByTagName('div')[0];
 	       console.log(rating)
@@ -179,12 +183,12 @@ class Media extends React.Component {
 	     catch{rating="unavialable"}
 	     try
 			{var cnnments = this.state.comments.comments.split("~")}
-		catch{cnnments=[0,1];console.log("pain")}
+		catch{cnnments=[0,1];console.log(nameal)}
 		return (
         <div>
         	<div className="Mediamain">
         		<div className="Mediaside">
-        			<img style={{'justifySelf':'center'}} src={this.props.data.image} />
+        			<img style={{'justifySelf':'center'}} className="carding1" src={this.props.data.image} />
         			<div style={{'textAlign':'left','padding':'1em'}}>
         				<li>No. of episodes:{episodes.value}</li><br/>
               			<li>Studio:{Studio.value}</li><br/>
