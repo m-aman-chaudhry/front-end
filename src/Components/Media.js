@@ -21,47 +21,23 @@ class Media extends React.Component {
 		this.commentsback()
 		this.initial()
 	}
-
-	initial=()=>{
-		fetch('http://localhost:3001/initial', {
-			method: 'post',
-			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify({
-				email: this.state.email,
-				id:this.props.data.anime
-			})
-		})
-		  .then(response => response.json())
-		  .then(user => {
-		  	if (user) {
-		  	if (parseInt(user.Rating) !==0) {
-		  		this.setState({rating:user.Rating})
-		  	}
-		  	this.setState({Status:user.status})
-
-		  	}
-		  })	
-	}
-
 	onclickrating=(data)=>{
+		this.setState({rating:data})
 		if (this.props.isSignedIn) {
-		if (this.state.Status === "Status") {
+		if (this.state.Status === "status") {
 			this.setState({Status:'Watching'})
 		}
-		this.setState({rating:data})
 
-		this.onSubmitstatus('Watching');
+		this.onSubmitstatus('Watching',data);
 
 		}
-		console.log(this.props)
 	}
 
 	onclickstatus=(data)=>{
 		if (this.props.isSignedIn) {
 			this.setState({Status:data})
-		this.onSubmitstatus(data);
+		this.onSubmitstatus(data,this.state.rating);
 	}
-	console.log("hell")
 	}
 
 	commentchange=(event)=>{
@@ -71,16 +47,12 @@ class Media extends React.Component {
 		else{
 			this.setState({comment:event.target.value})
 		}
-		console.log(event.target.value)
 	}
 
-	onSubmitrating = () => {
+	onSubmitrating = (data) => {
 		var data
 		if (this.state.rating=="Ratings") {
 			data=0
-		}
-		else{
-			data=this.state.rating
 		}
 		fetch('http://localhost:3001/rating', {
 			method: 'post',
@@ -92,12 +64,12 @@ class Media extends React.Component {
 			})
 		})
 		  .then(response => response.json())
-		  .then(user => {console.log("hr onClick={this.onclick}")
+		  .then(user => {
 		  })	
+		  		console.log("this.state.email")
 	}
 
-	onSubmitstatus = (data) => {
-		console.log(this.state)
+	onSubmitstatus = (data,data1) => {
 		fetch('http://localhost:3001/status', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
@@ -108,13 +80,11 @@ class Media extends React.Component {
 			})
 		})
 		  .then(user => {
-
-		  	this.onSubmitrating();
 		  })	
+		  this.onSubmitrating(data1);
 	}
 
 	onSubmitcomment = () => {
-		console.log("abx")
 		fetch('http://localhost:3001/comment', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
@@ -140,16 +110,36 @@ class Media extends React.Component {
 		  .then(response => response.json())
 		  .then(user => {
 		  		this.setState({comments:user[0]})
-		  		console.log("fishing")
-		  		console.log(user[0],this.state.comments)
 		  })	
 	}
+
+	initial = () => {
+		fetch('http://localhost:3001/initial', {
+			method: 'post',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+				email: this.state.email,
+				id:this.props.data.anime
+			})
+			})
+		  .then(response => response.json())
+		  .then(user => {
+		  	if (user) {
+		  	if (parseInt(user.Rating) !==0) {
+		  		this.setState({rating:user.Rating})
+		  	}
+		  	this.setState({Status:user.status})
+
+		  	}
+		  })	
+	}
+
 
 	render(){
 		try
 	       {var xml = new XMLParser().parseFromString(this.props.data.descreption);
 	       var valuing = xml.getElementsByTagName('div')[xml.getElementsByTagName('div').length-1].getElementsByTagName('ul')[0].getElementsByTagName('li');
-	   		if (Aired==null) {valuing = [{'value':" "},{'value':" "},{'value':" "},{'value':" "},{'value':" "},{'value':" "}]}}
+	   		}
 	     catch
 	       {var valuing = [{'value':" "},{'value':" "},{'value':" "},{'value':" "},{'value':" "},{'value':" "}]
 	        }
@@ -163,27 +153,24 @@ class Media extends React.Component {
 	     catch{Studio="unavialable"}
 	     try{
 	       var Aired = xml.getElementsByTagName('ul')[0].getElementsByTagName('li')[2];
-	       if (Aired==null) {Aired={'value':"unavialable"}}
 	     }
 	     catch{Aired="unavialable"}
 	     try{
 	       var descreption = xml.getElementsByTagName('p')[0];
-	       if (descreption==null) {descreption={'value':"Song"}}
 	     }
 	     catch{descreption="unavialable"}
 	     try{
 	       var nameal = xml.getElementsByTagName('h6')[0];
-	       if (nameal==null) {nameal={'value':"unavialable"}}
+	       if (nameal==null) {nameal={'value':'            '+this.props.data.anime}}
 	     }
 	     catch{nameal={'value':"unavialable"}}
 	     try{
 	       var rating = xml.getElementsByTagName('ul')[0].getElementsByTagName('li')[3].getElementsByTagName('div')[0];
-	       console.log(rating)
 	     }
 	     catch{rating="unavialable"}
 	     try
 			{var cnnments = this.state.comments.comments.split("~")}
-		catch{cnnments=[0,1];console.log(nameal)}
+		catch{cnnments=[0,1];}
 		return (
         <div>
         	<div className="Mediamain">
