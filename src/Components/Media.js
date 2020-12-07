@@ -178,7 +178,7 @@ class Media extends React.Component {
         	<div className="Mediamain">
         		<div className="Mediaside">
         			<img style={{'justifySelf':'center'}} className="carding1" src={this.props.data.image} />
-        			<div style={{'textAlign':'left','padding':'1em'}}>
+        			<div style={{'textAlign':'left','padding':'1em', 'color':'white'}}>
         				<li>No. of episodes:{episodes.value}</li><br/>
               			<li>Studio:{Studio.value}</li><br/>
               			<li>Aired:{Aired.value}</li><br/>
@@ -188,10 +188,10 @@ class Media extends React.Component {
         			</div>
         		</div>
         		<div>
-        		<h1>{this.props.data.anime}</h1>
-        		<h3 style={{'textAlign':'left'}}>Alternative Title:{nameal.value.slice(11,)}</h3>
+        		<h1 style={{'color':'white'}}>{this.props.data.anime}</h1>
+        		<h3 style={{'textAlign':'left','color':'white'}}>Alternative Title:{nameal.value.slice(11,)}</h3>
         		<div className="contactra">
-        			<div style={{'alignSelf':'center','justifySelf':'center','fontSize':'1.5em'}}>
+        			<div style={{'alignSelf':'center','justifySelf':'center','fontSize':'1.5em','color':'white'}}>
         				Current Ratings: &#9733;{rating.value}
         			</div>
         			<div style={{'alignSelf':'center','justifySelf':'center'}}>
@@ -217,19 +217,19 @@ class Media extends React.Component {
 						</div>
 					</div>
         		</div>
-        		<p style={{'fontSize':'1.25em','textAlign':'left'}}>{descreption.value}</p>
+        		<p style={{'fontSize':'1.25em','textAlign':'left', 'color':'white'}}>{descreption.value}</p>
         		</div>
         		<div>
         		</div>
         	</div>
         	<div>
-	        	<h2>Comments:</h2>
+	        	<h2 style={{'color':'white'}}>Comments:</h2>
 				<div style={{display:"flex", height:"100px" , justifyContent:"center"}} className='bg-gray' >
 		            <input onChange={this.commentchange} className='ba background pa2 mb2 db w-80 mv4 br-pill border-nav b' type='text' placeholder='Add your Comment here.' />
 		            <button onClick={this.onSubmitcomment} type="buton" className="f6 grow no-underline br-pill ph3 pv2 dib white bg-near-black ma2 mt4 mb4 border-nav">Submit</button>
 	        	</div>
 	        	<div>
-	        		{cnnments.map(data=>{return(<li style={{'margin':'0em','padding':'0em'}}>{data},</li>)})}
+	        		{cnnments.map(data=>{return(<li style={{'display':'flex','alignItems':'center','height':'60px','borderStyle':'solid','borderWidth':'3px','borderColor':'white','margin':'5px','listStyle':'none','color':'white','paddingLeft':'20px'}}>{data}</li>)})}
 	        	</div>        	
         	</div>
         </div>

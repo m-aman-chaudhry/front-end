@@ -31,7 +31,9 @@ class Search extends Component {
   render(){
     const styleInfo = {
       paddingRight:'10px',
-      textAlign:'center'
+      textAlign:'center',
+      color:'white',
+      textDecoration:'none',
     }
     const elementStyle ={
       border:'solid',
@@ -44,7 +46,7 @@ class Search extends Component {
       marginBottom:'10vh'
     }
     const items = Information.filter((data)=>{
-      if(this.state.search == null)
+      if(this.state.search === null)
           return data
       else if(data.anime.toLowerCase().includes(this.state.search.toLowerCase()) || data.image.toLowerCase().includes(this.state.search.toLowerCase())){
           return data
@@ -93,7 +95,7 @@ class Search extends Component {
 
     return (
       <div>
-      <div style={{display:"flex", height:"100px" , justifyContent:"center"}} className='bg-gray' >
+      <div style={{display:"flex", height:"100px" , justifyContent:"center",'color':'white'}} className='bg-gray' >
             <input className='ba background pa2 mb2 db w-40 mv4 br-pill border-nav b' type='text' placeholder='Enter item to be searched' onChange={(e)=>this.searchSpace(e)} />
       </div>
       <ul className="altag">
