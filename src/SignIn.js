@@ -35,6 +35,9 @@ class SignIn extends React.Component {
 		  		this.props.loaduser(user);
 		  		this.props.signin();
 		  	}
+		  	else{
+		  		alert("incorrect password or email")
+		  	}
 		  })	
 	}
 

@@ -22,14 +22,15 @@ class Media extends React.Component {
 		this.initial()
 	}
 	onclickrating=(data)=>{
-		this.setState({rating:data})
 		if (this.props.isSignedIn) {
+			this.setState({rating:data})
 		if (this.state.Status === "status") {
 			this.setState({Status:'Watching'})
+			this.onSubmitstatus("Watching",data);
 		}
-
-		this.onSubmitstatus('Watching',data);
-
+		else{
+			this.onSubmitstatus(this.state.status,data);
+		}
 		}
 	}
 
@@ -96,6 +97,7 @@ class Media extends React.Component {
 		})
 		  .then(response => response.json())
 		  .then(user => {
+		  	alert("Comment is added")
 		  })	
 	}
 

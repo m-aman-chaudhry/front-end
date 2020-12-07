@@ -36,7 +36,7 @@ class Profile extends Component {
 		return(
 			<div className="userProfile">
 				<h1 className="text-gradient">PROFILE</h1>
-				<h2 className="text-gradient">USERNAME: {this.props.user.email}</h2>
+				<h2 className="text-gradient">Email ID: {this.props.user.email}</h2>
 				<table className="userTable">
 					<thead>
 					  <tr>
